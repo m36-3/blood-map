@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BloodMap Iraq — v3 Prototype</title>
+  <meta name="description" content="نسخة تجريبية تفاعلية لمنصة تنسيق طلبات الدم والمتبرعين في العراق." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <section id="loginView" class="login-view">
+    <div class="login-shell">
+      <div class="brand-lockup">
+        <div class="brand-mark">🩸</div>
+        <div>
+          <div class="brand-name">BloodMap Iraq</div>
+          <div class="brand-sub">منصة تنسيق خدمات الدم</div>
+        </div>
+      </div>
+
+      <div class="login-grid">
+        <div class="login-intro">
+          <span class="eyebrow">END-TO-END DEMO · v3</span>
+          <h1>من طلب الدم إلى توفيره، في رحلة واحدة.</h1>
+          <p>نسخة تجريبية تحاكي رحلة المواطن والكادر الصحي ومصرف الدم والمتبرعين مع صلاحيات مختلفة لكل دور.</p>
+          <div class="login-highlights">
+            <div><strong>01</strong><span>بحث عن الدم</span></div>
+            <div><strong>02</strong><span>إرسال الطلب</span></div>
+            <div><strong>03</strong><span>مراجعة المصرف</span></div>
+            <div><strong>04</strong><span>استدعاء المتبرعين</span></div>
+          </div>
+        </div>
+
+        <div class="login-card">
+          <div class="card-label">DEMO ACCESS</div>
+          <h2>اختر الحساب للتجربة</h2>
+          <p class="muted">كل البيانات هنا وهمية ومخصصة للعرض فقط.</p>
+
+          <div class="demo-account-list">
+            <button class="demo-account" data-demo-role="citizen">
+              <span class="account-icon citizen">👤</span>
+              <span><b>مواطن / متبرع</b><small>citizen · 123456</small></span>
+            </button>
+            <button class="demo-account" data-demo-role="staff">
+              <span class="account-icon staff">🩺</span>
+              <span><b>كادر صحي</b><small>staff · 123456</small></span>
+            </button>
+            <button class="demo-account" data-demo-role="bank">
+              <span class="account-icon bank">🏥</span>
+              <span><b>مصرف دم</b><small>bank · 123456</small></span>
+            </button>
+          </div>
+
+          <form id="loginForm" class="login-form">
+            <label for="username">اسم المستخدم</label>
+            <input id="username" autocomplete="username" placeholder="مثال: citizen" required />
+            <label for="password">كلمة المرور</label>
+            <input id="password" type="password" autocomplete="current-password" placeholder="••••••" required />
+            <button class="btn btn-primary full" type="submit">دخول إلى النسخة التجريبية</button>
+          </form>
+          <div id="loginError" class="form-error"></div>
+        </div>
+      </div>
+
+      <div class="prototype-note">⚠️ Prototype only — لا تُستخدم هذه البيانات لاتخاذ قرارات طبية أو تشغيلية حقيقية.</div>
+    </div>
+  </section>
+
+  <div id="appView" class="app-view hidden">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a href="#dashboard" class="brand" data-route="dashboard">
+          <span class="brand-mark small">🩸</span>
+          <span><strong>BloodMap</strong><small>شبكة الدم العراقية</small></span>
+        </a>
+        <nav id="mainNav" class="nav-links"></nav>
+        <div class="top-actions">
+          <button id="notificationsBtn" class="icon-btn" title="الإشعارات">🔔<span id="notifBadge" class="notif-badge"></span></button>
+          <button id="userMenuBtn" class="user-chip"><span id="avatar">م</span><span><b id="userName">مستخدم</b><small id="userRole">مواطن</small></span></button>
+          <button id="mobileMenu" class="mobile-menu" aria-label="القائمة">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container main-layout">
+      <aside id="sidebar" class="sidebar"></aside>
+      <main id="appContent" class="content"></main>
+    </div>
+  </div>
+
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button id="modalClose" class="modal-close" aria-label="إغلاق">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
